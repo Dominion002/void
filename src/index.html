@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Void</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container min-h-screen bg-center bg-cover min-w-full px-28 py-5 relative" style="background-image: url('{{ url_for('static', filename='images/image.png') }}');">
+        <nav class="flex items-center">
+            <img src="{{ url_for('static', filename='images/void_logo.png') }}" alt="" class="w-40 cursor-pointer">
+            <ul class="flex-1 text-center">
+                <li class="list-none inline-block px-5"><a href="" class="no-underline text-white px-2">Home</a></li>
+                <li class="list-none inline-block px-5"><a href="" class="no-underline text-white px-2">About</a></li>
+                <li class="list-none inline-block px-5"><a href="" class="no-underline text-white px-2">Features</a></li>
+                <li class="list-none inline-block px-5"><a href="" class="no-underline text-white px-2">Contacts</a></li>
+            </ul>
+            <img src="{{ url_for('static', filename='images/cart.png') }}" alt="" class="w-8 cursor-pointer">
+        </nav>
+
+        <div class="text-white mt-48 max-w-xl">
+            <h1 class="text-6xl font-semibold leading-normal">Void<br>Market Place</h1>
+            <p>With Void embark on an amazing adventure of buying and selling like no other.
+                Experience the future of e-commerce with Void, "where every transaction is more than just a purchase it’s an adventure."</p>
+
+                <div class="mt-10 ">
+                    <a href="{{ url_for('signup') }}" class="bg-yellow-300 rounded-3xl py-3 px-8 
+                    font-medium inline-block mr-4 
+                    hover:bg-transparent hover:border-yellow-300 hover:text-white duration-300 hover:border border border-transparent">Sign Up</a>
+                    <a href="{{ url_for('shop_now') }}">Shop Now <span class="text-lg inline-block rotate-90">&#10148</span></a>
+
+                </div>
+        </div>
+        
+        <img src="{{ url_for('static', filename='images/grocery-image.png') }}" alt="" class="w-full xl:w-1/2 xl:absolute bottom-0 right-20">
+
+    </div>
+    
+</body>
+</html>
+
