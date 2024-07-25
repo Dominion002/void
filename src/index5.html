@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Void</title>
+</head>
+<body class="">
+    <div class="flex">
+        <div class=" w-1/5 bg-white text-black p-4 h-screen">
+            <nav class="text-right">
+                <div class="flex justify-end items-center w-full">
+                    <h1 class="font-bold uppercase p-4 border-b border-gray-100 ">
+                        <a href="#">Void Market</a>
+                    </h1>
+                </div>
+
+                <ul class="mt-6 hidden md:block" id="menu">
+
+                    <li class="text-gray-700 border-r-4 border-white">
+                        <a href="{{ url_for('shop_now') }}" class="px-4 flex justify-end">
+                            <span>Home</span> 
+                            <svg class="w-5 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                              </svg>
+                              
+                        </a> 
+                    </li>
+                    <li class="py-1 border-r-4 border-white">
+                        <a href="#" class="px-4 pt-4 flex justify-end">
+                            <span>about</span>
+                            <svg class="w-5 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                              </svg>
+                              
+                        </a> 
+                    </li>
+                    <li class="py-1 border-r-4 border-white">
+                        <a href="#" class="px-4 pt-4 flex justify-end">
+                            <span>Contacts</span>
+                            <svg class="w-5 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                              </svg>   
+                        </a> 
+                    </li>
+                    <li class="py-1 border-r-4 border-white">
+                        <a href="#" class="px-4 pt-4 flex justify-end border-red-400">
+                            <span id="dashboard">Dashboard</span>
+                            <svg class="w-5 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8v-10h-8v10zm0-18v6h8V3h-8z"/>
+                              </svg>            
+                              <div id="subtext" class="hidden pl-4 transition-all duration-500 ease-in-out">
+                                <a href="#" class="px-4 flex font-bold justify-end ">
+                                    <p class="text-lg text-gray-700">Statistics</p>
+                                    <svg class="w-5 ml-2"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 17h2v-7H3v7zm4 0h2V7H7v10zm4 0h2v-4h-2v4zm4 0h2V4h-2v13zm4 0h2V1h-2v16z"/>
+                                      </svg>
+                                      
+                                </a>
+                                <a href="{{ url_for('steeze') }}" class="px-4 pt-2 flex justify-end">
+                                    <p class="text-lg text-gray-700">Uploads</p>
+                                    <svg class="w-5 ml-2"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM13 13v4h-2v-4H8l4-4 4 4h-3z"/>
+                                      </svg>
+                                      
+                                </a>
+                            </div>
+                        </a> 
+                    </li>
+
+                    <li class="py-1 border-r-4 border-white">
+                        <a href="#" class="px-4 pt-4 flex justify-end">
+                            <span id="settings">Settings</span>
+                            <svg class="w-6 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"  d="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.06-.94l2.03-1.58c.18-.14.23-.39.12-.61l-1.92-3.32c-.11-.21-.35-.3-.57-.24l-2.39.96a7.056 7.056 0 0 0-1.64-.95L15 4.48c0-.24-.19-.44-.44-.44h-3.12c-.25 0-.44.19-.44.44l-.38 2.62c-.59.23-1.13.53-1.64.95L6.13 5.99a.508.508 0 0 0-.57.24l-1.92 3.32c-.11.21-.06.47.12.61l2.03 1.58c-.04.3-.06.61-.06.94s.02.64.06.94l-2.03 1.58c-.18.14-.23.39-.12.61l1.92 3.32c.11.21.35.3.57.24l2.39-.96c.51.42 1.05.72 1.64.95l.38 2.62c0 .24.19.44.44.44h3.12c.25 0 .44-.19.44-.44l.38-2.62c.59-.23 1.13-.53 1.64-.95l2.39.96c.22.06.46-.03.57-.24l1.92-3.32c.11-.21.06-.47-.12-.61l-2.03-1.58zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/>
+                              </svg>
+                               
+                              <div id="subtext2" class="hidden pl-4 transition-all duration-500 ease-in-out">
+                                <a href="{{ url_for('logout') }}" class="px-4 flex justify-end">
+                                    <p class="text-lg text-gray-700">Logout</p>
+                                    <svg class="w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
+                                      </svg>
+                                </a>
+                                <a href="#" class="px-4 pt-2 flex justify-end">
+                                    <p class="text-lg text-gray-700">Delete account</p>
+                                    <svg class="w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-.5-.5H10L12 3H5v2h14V4z" />
+                                      </svg>
+                                </a> 
+                            </div>
+                        </a> 
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Section two  **********************************************************************************************-->
+        <div class="w-3/5 bg-gray-200 text-white p-4  h-screen">
+            <div class="flex justify-start items-center w-full">
+                <h1 class="font-bold uppercase p-4 pl-14 border-gray-100 text-xl">
+                    <a href="#">My Dashboard</a>
+                </h1>
+            </div>
+            <div class="w-price1 ml-14 h-36 flex text-black">
+                <div class="w-pricebox h-36 bg-green-300 rounded-md">
+                    <div class="w-full h-custom flex rounded-md">
+                        <h1 class="px-5 py-5 font-bold text-xl">1,189</h1>
+                        <div class=" w-14 h-12 ml-14 my-3 rounded-full flex justify-center items-center border-r-2 border-green-400">
+                            <img src="{{ url_for('static', filename='images/people.png') }}" class="w-10 h-8">
+                        </div>
+                    </div>
+                    <h1 class="px-5 text font-bold text-xl">New Customers</h1>
+                </div>
+                <div class="w-pricebox ml-4 ml-price2 h-36 bg-green-200 rounded-md">
+                    <div class="w-full h-custom flex rounded-md">
+                        <h1 class="px-5 py-5 font-bold text-xl">1,189</h1>
+                        <div class=" w-14 h-12 ml-14 my-3 rounded-full flex justify-center items-center border-r-2 border-green-400">
+                            <img src="{{ url_for('static', filename='images/padlock.png') }}" class="w-10 h-8">
+                        </div>
+                    </div>
+                    <h1 class="px-5 text font-bold text-xl">New Orders</h1>
+                </div>
+                <div class="w-pricebox ml-4 h-36 bg-red-300 rounded-md">
+                    <div class="w-full h-custom flex rounded-md">
+                        <h1 class="px-5 py-5 font-bold text-xl">₦1,189</h1>
+                        <div class="w-14 h-12 ml-14 my-3 rounded-full flex justify-center items-center border-r-2 border-red-400">
+                            <img src="{{ url_for('static', filename='images/naira.png') }}" class="w-10 h-10">
+                        </div>
+                    </div>
+                    <h1 class="px-5 text font-bold text-xl">Avg Sale</h1>
+                </div>
+                <div class="w-pricebox ml-4 h-36 bg-customBlue rounded-md">
+                    <div class="w-full h-custom flex rounded-md">
+                        <h1 class="px-5 py-5 font-bold text-xl">₦1,189</h1>
+                        <div class="w-14 h-12 ml-14 my-3 rounded-full flex justify-center items-center border-r-2 border-white">
+                            <img src="{{ url_for('static', filename='images/wallet.png') }}" class="w-7 h-7">
+                        </div>
+                    </div>
+                    <h1 class="px-5 text font-bold text-xl">Gross Profit</h1>
+                </div>
+            </div>
+
+
+            <!--Chart **********************************************************************-->
+            <div class="w-price1 mx-14 h-1/2 bg-white mt-8 rounded-md text-xl font-bold">
+                <div class="w-full h-full">
+                    <canvas id="incomeChart" width="800" height="400"></canvas>
+                  </div>
+                  <script>
+                    // Get the context of the canvas element
+                    var ctx = document.getElementById('incomeChart').getContext('2d');
+                
+                    // Data for the chart
+                    var data = {
+                      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                      datasets: [{
+                        label: 'Sales Analytics',
+                        data: [50, 150, 200, 400, 750, 850, 900, 950, 1200, 1050, 1100, 350],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',  // Fill color under the line
+                        borderColor: 'rgba(75, 192, 192, 1)',        // Line color
+                        borderWidth: 2,                              // Line width
+                        pointBackgroundColor: 'rgba(75, 192, 192, 1)', // Point color
+                        pointBorderColor: '#fff',                    // Point border color
+                        pointHoverBackgroundColor: '#fff',           // Point hover background color
+                        pointHoverBorderColor: 'rgba(75, 192, 192, 1)' // Point hover border color
+                      }]
+                    };
+                
+                    // Options for the chart
+                    var options = {
+                      responsive: true,
+                      maintainAspectRatio: false,
+                      scales: {
+                        y: {
+                          beginAtZero: true,
+                          grid: {
+                        //   display: false // Disable horizontal grid lines
+                               }
+                        },
+                        x: {
+                          grid: {
+                          display: false // Disable vertical grid lines (optional)
+                                }
+                        }
+                      },
+                      plugins: {
+                    legend: {
+                     display: true,
+                     labels: {
+                        generateLabels: function(chart) {
+                const dataset = chart.data.datasets[0];
+                return [{
+                  text: dataset.label,
+                  fillStyle: 'transparent', // Make the legend box transparent
+                  strokeStyle: 'transparent',
+                  lineWidth: 0,
+                  hidden: false,
+                  index: 0
+                }];
+              },
+                      font: {
+                        size: 16, // Increase font size
+                        weight: 'bold' // Make text bold
+                            },
+                        padding: 20 // Add some padding around the legend
+                    },
+                    position: 'top', // Position the legend at the start (top)
+                    align: 'start', // Align the legend to the start
+                }
+            }
+                    };
+                
+                    // Create the line chart
+                    var incomeChart = new Chart(ctx, {
+                      type: 'line',
+                      data: data,
+                      options: options
+                    });
+                  </script>   
+            </div>
+
+            <div class="w-price1 mx-14 h-52 bg-white mt-8 rounded-md overflow-y-auto border border-gray-300 relative">
+                <h1 class="text-black px-5 py-3 font-bold text-2xl">Stock Report</h1>
+                <div class="w-full h-14 border-b-2 border-red-400 flex text-black font-bold relative">
+                    <div>
+                        <h1 class="px-4 py-3 w-96">Product Name</h1>
+                    </div>
+                    <div>
+                        <h1 class=" py-3 w-64 text-center">Price</h1>
+                    </div>
+                    <div>
+                        <h1 class="px-4 py-3 w-72 text-center ">Quantity</h1>
+                    </div>
+                </div>
+
+                {% for product in products %}
+                <div class="w-full h-14 border-red-400 flex text-black font-bold relative">
+                    <div>
+                        <h1 class="px-4 py-3 w-96">{{ product.product_name }}</h1>
+                    </div>
+                    <div>
+                        <h1 class=" py-3 w-64 text-center">₦{{ product.price }}</h1>
+                    </div>
+                    <div>
+                        <h1 class="px-4 py-3 w-72 text-center">{{ product.stock_amount }}</h1>
+                    </div >
+                    <div class="relative">
+                        <button class="absolute top-2 right-2  group-hover:opacity-100 transition-opacity duration-300 text-gray-500 focus:outline-none" onclick="toggleDropdown(event)">
+                            <svg class="w-6 h-6" fill="black" viewBox="0 0 24 24">
+                                <path d="M12 16.5c-.83 0-1.5.67-1.5 1.5S11.17 19.5 12 19.5 13.5 18.83 13.5 18s-.67-1.5-1.5-1.5zm0-5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm0-5c-.83 0-1.5.67-1.5 1.5S11.17 9 12 9s1.5-.67 1.5-1.5S12.83 6.5 12 6.5z"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu absolute right-2 bottom-10 bg-white border border-gray-200 shadow-lg rounded-md z-10 hidden group-hover:block">
+                            <button class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 w-full text-left" onclick="deleteProduct('{{ product.id }}')">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Section three **************************************************************************************************-->
+        <div class="w-1/4 bg-gray-200 text-white h-screen">
+          <div class="ml-80 pr-4 w-16 h-11 my-4 flex">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="30px" height="30px">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-2.76-2.24-5-5-5V5c0-.83-.67-1.5-1.5-1.5S10 4.17 10 5v1c-2.76 0-5 2.24-5 5v5l-1.29 1.29c-.19.19-.29.44-.29.71v.5c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-.5c0-.27-.11-.52-.29-.71L18 16zM18 16H6v-5c0-2.21 1.79-4 4-4s4 1.79 4 4v5z"/>
+          </svg> 
+          <h1 class="text-red-500 font-bold">2</h1>         
+    </div>
+    <div class="ml-2 bg-white w-96 h-60 rounded-xl text-black">
+        <h1 class="font-bold text-xl px-3 py-3">Top item this week</h1>
+        <div class="w-full h-20 flex ">
+            <div class="bg-gray-100 h-20 w-32 mx-3 rounded-xl flex items-center justify-center">
+                <img src="{{ url_for('static', filename='images/iphone2.png') }}" class="w-20 h-16">
+            </div>
+            <div class=" h-20 w-60">
+                <h1 class="font-bold pt-2">Iphone 13 promax</h1>
+                <h1 class="">From Void</h1>
+            </div>         
+        </div>
+        <div class="w-full h-20 mt-5 flex">
+            <div class="w-1/3 h-full  border-r-2 border-black">
+                <h1 class="px-3 pt-3">items</h1>
+                <h1 class="font-bold px-3">217 PCS</h1>
+            </div>
+            <div class="w-1/3 h-full  border-r-2 border-black">
+                <h1 class="px-3 pt-3">order items</h1>
+                <h1 class="font-bold px-3">Sales</h1>
+            </div>
+            <div class="w-1/3 h-full bg--400">
+                <h1 class="px-3 pt-3">Profits</h1>
+                <h1 class="font-bold px-3">₦2,170</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="ml-2 bg-white w-96 h-80 rounded-xl my-7 text-black overflow-y-auto border">
+        <h1 class="font-bold text-xl px-3 py-3">Today's Orders</h1>
+        <div class="w-full h-20  flex">
+            <div class="bg-gray-100 h-20 w-32 mx-3 rounded-xl flex items-center justify-center">
+                <img src="{{ url_for('static', filename='images/iphone2.png') }}" class="w-20 h-16">
+            </div>
+            <div class=" h-20 w-60">
+                <h1 class="font-bold">Iphone 13 promax</h1>
+                <h1 class="">10:54am</h1>
+                <h1 class="pl-40 font-bold">₦1,0000</h1>
+            </div>
+        </div>
+        <div class="w-full h-20 flex my-1">
+            <div class="bg-gray-100 h-20 w-32 mx-3 rounded-xl flex items-center justify-center">
+                <img src="{{ url_for('static', filename='images/iphone.png') }}" class="w-20 h-16">
+            </div>
+            <div class=" h-20 w-60">
+                <h1 class="font-bold">Iphone 13 promax</h1>
+                <h1 class="">10:54am</h1>
+                <h1 class="pl-40 font-bold">₦1,0000</h1>
+            </div>
+        </div>
+        <div class="w-full h-20 flex my-1">
+            <div class="bg-gray-100 h-20 w-32 mx-3 rounded-xl flex items-center justify-center">
+                <img src="{{ url_for('static', filename='images/iphone2.png') }}" class="w-20 h-16">
+            </div>
+            <div class=" h-20 w-60">
+                <h1 class="font-bold">Iphone 13 promax</h1>
+                <h1 class="">10:54am</h1>
+                <h1 class="pl-40 font-bold">₦1,0000</h1>
+            </div>
+        </div>
+    </div>
+    <div class="ml-2 bg-blue-500 w-96 h-60 rounded-xl text-black">
+        <h1 class="font-bold text-xl px-3 py-3">Top item in this month</h1>
+        <div class="w-full h-20 flex ">
+            <div class="bg-gray-300 h-20 w-32 mx-3 rounded-xl flex items-center justify-center">
+                <img src="{{ url_for('static', filename='images/iphone2.png') }}" class="w-20 h-16">
+            </div>
+            <div class=" h-20 w-60">
+                <h1 class="font-bold pt-2">Iphone 13 promax</h1>
+                <h1 class="">From Void</h1>
+            </div>         
+        </div>
+        <div class="w-full h-20 mt-5 flex">
+            <div class="w-1/3 h-full  border-r-2 border-black">
+                <h1 class="px-3 pt-3">items</h1>
+                <h1 class="font-bold px-3">217 PCS</h1>
+            </div>
+            <div class="w-1/3 h-full  border-r-2 border-black">
+                <h1 class="px-3 pt-3">order items</h1>
+                <h1 class="font-bold px-3">Sales</h1>
+            </div>
+            <div class="w-1/3 h-full bg--400">
+                <h1 class="px-3 pt-3">Profits</h1>
+                <h1 class="font-bold px-3">₦2,170</h1>
+            </div>
+        </div>
+    </div>
+        </div>
+      </div>
+      <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

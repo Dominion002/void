@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gray-300 h-screen w-screen">
+    <div class=" flex items-center justify-center h-screen">
+        <div class="font-semibold text-2xl">
+            <h1>An Error Occurred</h1>
+            <p>{{ error }}</p>
+            <p>Go back to <span class="font-bold text-red-300"><a href="{{ url_for('shop_now') }}">Home</a></span></p>
+        </div>
+    </div>
+    
+</body>
+</html>
